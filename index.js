@@ -1,9 +1,12 @@
 /**
  * @format
  */
+import { registerRootComponent } from 'expo';
+import App from './app/App'; // ← default export に変更してある前提！
 
-import { AppRegistry } from "react-native"
-import App from "./app/App"
-import { name as appName } from "./app.json"
+// ログ出力だけならここで OK
+import Constants from 'expo-constants';
+console.log('Scandit License Key:', Constants.expoConfig.extra?.SCANDIT_LICENSE_KEY);
 
-AppRegistry.registerComponent(appName, () => App)
+// Expo Dev Client は 'main' を探す
+registerRootComponent(App);
