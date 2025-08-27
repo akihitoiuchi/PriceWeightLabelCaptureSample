@@ -8,8 +8,7 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "buildConfiguration": "Debug",
-        "skipPrebuild": true
+        "buildConfiguration": "Debug"
       }
     },
     "preview": {
@@ -26,7 +25,8 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "buildConfiguration": "Debug"
+        "buildConfiguration": "Debug",
+       "skipPrebuild": true
       }
     }
   },
