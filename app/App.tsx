@@ -1,55 +1,93 @@
-import React, { useReducer } from "react"
-import { NavigationContainer } from "@react-navigation/native"
-import { HomeScreen } from "./HomeScreen/HomeScreen"
-import { ItemListScreen } from "./ItemListScreen/ItemListScreen"
-import { createStack, Screens } from "./Navigation/navigation"
-import { initialState, reducer } from "./Models/reducer"
-import { AppDispatchContext, AppStateContext } from "./Models/appContext"
-import { Strings } from "./Resources/Strings"
-import { Colors } from "./Resources/Colors"
-import { StatusBar } from "react-native"
-import { Values } from "./Resources/Values"
+import React, { useEffect, useState } from 'react';
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import {
+  DataCaptureContext,
+  Camera,
+  CameraSettings,
+  DataCaptureView,
+  RectangularViewfinder,
+  VideoResolution,
+} from 'scandit-react-native-datacapture-core';
+import {
+  BarcodeCapture,
+  BarcodeCaptureSettings,
+  BarcodeCaptureOverlay,
+  Symbology,
+  BarcodeCaptureSession,
+} from 'scandit-react-native-datacapture-barcode';
+import Constants from 'expo-constants';
 
-const Stack = createStack()
+export default function App() {
+  const [context, setContext] = useState<DataCaptureContext | null>(null);
+  const [view, setView] = useState<DataCaptureView | null>(null);
+  const [barcodeCapture, setBarcodeCapture] = useState<BarcodeCapture | null>(null);
+  const [scannedCode, setScannedCode] = useState<string | null>(null);
 
-function App() {
-  StatusBar.setBarStyle("light-content", true)
-  const [state, dispatch] = useReducer(reducer, initialState)
+  useEffect(() => {
+    const licenseKey = Constants.expoConfig?.extra?.SCANDIT_LICENSE_KEY;
+    if (!licenseKey) {
+      console.warn('⚠️ SCANDIT_LICENSE_KEY not found');
+      return;
+    }
+
+    const dataCaptureContext = DataCaptureContext.forLicenseKey(licenseKey);
+
+    const cameraSettings = new CameraSettings();
+    cameraSettings.preferredResolution = VideoResolution.FullHD;
+
+    const camera = Camera.default;
+    if (camera) {
+      dataCaptureContext.setFrameSource(camera);
+      camera.applySettings(cameraSettings);
+      camera.switchToDesiredState(Camera.State.On);
+    }
+
+    const barcodeSettings = new BarcodeCaptureSettings();
+    barcodeSettings.enableSymbologies([
+      Symbology.EAN13UPCA,
+      Symbology.Code128,
+      Symbology.QR,
+    ]);
+
+    const barcodeCaptureMode = BarcodeCapture.forDataCaptureContext(dataCaptureContext, barcodeSettings);
+
+    barcodeCaptureMode.addListener({
+      didScan: (_, session: BarcodeCaptureSession) => {
+        const barcode = session.newlyRecognizedBarcodes[0];
+        if (barcode?.data) {
+          setScannedCode(barcode.data);
+        }
+      },
+    });
+
+    const captureView = DataCaptureView.forContext(dataCaptureContext);
+    const overlay = BarcodeCaptureOverlay.withBarcodeCaptureForView(barcodeCaptureMode, captureView);
+    overlay.viewfinder = new RectangularViewfinder();
+
+    setContext(dataCaptureContext);
+    setView(captureView);
+    setBarcodeCapture(barcodeCaptureMode);
+  }, []);
 
   return (
-    <AppStateContext.Provider value={state}>
-      <AppDispatchContext.Provider value={dispatch}>
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerStyle: {
-                backgroundColor: Colors.black900
-              },
-              headerTintColor: Colors.white
-            }}
-          >
-            <Stack.Screen
-              name={Screens.HOME}
-              component={HomeScreen}
-              options={{
-                headerTitle: Strings.homeHeaderTitle,
-                headerTransparent: true,
-                headerTitleAlign: "center",
-                headerStatusBarHeight: Values.headerPaddingTop,
-              }}
-            />
-            <Stack.Screen
-              name={Screens.ITEM_LIST}
-              component={ItemListScreen}
-              options={{
-                headerTitle: Strings.itemListScreenTitle
-              }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </AppDispatchContext.Provider>
-    </AppStateContext.Provider>
-  )
+    <SafeAreaView style={styles.container}>
+      {view && <View style={styles.viewContainer}>{view}</View>}
+      <Text style={styles.resultText}>
+        {scannedCode ? `Scanned: ${scannedCode}` : 'Scan a barcode'}
+      </Text>
+    </SafeAreaView>
+  );
 }
 
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  viewContainer: { flex: 1 },
+  resultText: {
+    fontSize: 18,
+    textAlign: 'center',
+    margin: 16,
+  },
+});
+
 export default App
+

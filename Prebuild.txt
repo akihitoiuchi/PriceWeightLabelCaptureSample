@@ -1,0 +1,180 @@
+Prebuild
+
+1s
+
+
+Skipped running "expo prebuild" because the "ios" directory already exists. Learn more about the build process: https://docs.expo.dev/build-reference/ios-builds/
+Install pods
+
+36s
+
+
+Found 7 modules for target `PriceWeightLabelCaptureSample`
+link_native_modules! {:ios_packages=>[{:configurations=>[], :name=>"react-native-gesture-handler", :root=>"/Users/expo/workingdir/build/node_modules/react-native-gesture-handler", :path=>"../node_modules/react-native-gesture-handler", :podspec_path=>"/Users/expo/workingdir/build/node_modules/react-native-gesture-handler/RNGestureHandler.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"react-native-safe-area-context", :root=>"/Users/expo/workingdir/build/node_modules/react-native-safe-area-context", :path=>"../node_modules/react-native-safe-area-context", :podspec_path=>"/Users/expo/workingdir/build/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"react-native-screens", :root=>"/Users/expo/workingdir/build/node_modules/react-native-screens", :path=>"../node_modules/react-native-screens", :podspec_path=>"/Users/expo/workingdir/build/node_modules/react-native-screens/RNScreens.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"scandit-react-native-datacapture-barcode", :root=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-barcode", :path=>"../node_modules/scandit-react-native-datacapture-barcode", :podspec_path=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-barcode/scandit-react-native-datacapture-barcode.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"scandit-react-native-datacapture-core", :root=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-core", :path=>"../node_modules/scandit-react-native-datacapture-core", :podspec_path=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-core/scandit-react-native-datacapture-core.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"scandit-react-native-datacapture-label", :root=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-label", :path=>"../node_modules/scandit-react-native-datacapture-label", :podspec_path=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-label/scandit-react-native-datacapture-label.podspec", :script_phases=>[]}, {:configurations=>[], :name=>"scandit-react-native-datacapture-label-text", :root=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-label-text", :path=>"../node_modules/scandit-react-native-datacapture-label-text", :podspec_path=>"/Users/expo/workingdir/build/node_modules/scandit-react-native-datacapture-label-text/scandit-react-native-datacapture-label-text.podspec", :script_phases=>[]}], :ios_project_root_path=>"/Users/expo/workingdir/build/ios", :react_native_path=>"../node_modules/react-native"}
+Auto-linking React Native modules for target `PriceWeightLabelCaptureSample`: RNGestureHandler, RNScreens, react-native-safe-area-context, scandit-react-native-datacapture-barcode, scandit-react-native-datacapture-core, scandit-react-native-datacapture-label, and scandit-react-native-datacapture-label-text
+Framework build type is static library
+Configuring the target with the New Architecture
+[Codegen] Analyzing /Users/expo/workingdir/build/package.json
+[Codegen] Searching for codegen-enabled libraries in the app.
+[Codegen] The "codegenConfig" field is not defined in package.json. Assuming there is nothing to generate at the app level.
+[Codegen] Searching for codegen-enabled libraries in the project dependencies.
+[Codegen] Found react-native
+[Codegen] Found react-native-gesture-handler
+[Codegen] Found react-native-safe-area-context
+[Codegen] Found react-native-screens
+[Codegen] Searching for codegen-enabled libraries in react-native.config.js
+[Codegen] Processing FBReactNativeSpec
+[Codegen] Searching for podspec in the project dependencies.
+[Codegen] Processing rncore
+[Codegen] Searching for podspec in the project dependencies.
+[Codegen] Processing rngesturehandler_codegen
+[Codegen] Searching for podspec in the project dependencies.
+[Codegen] Supported Apple platforms: ios, macos, tvos, visionos for rngesturehandler_codegen
+[Codegen] Processing safeareacontext
+[Codegen] Searching for podspec in the project dependencies.
+[Codegen] Supported Apple platforms: ios, macos, tvos, visionos for safeareacontext
+[Codegen] Processing rnscreens
+[Codegen] Searching for podspec in the project dependencies.
+[Codegen] Supported Apple platforms: ios, tvos, visionos for rnscreens
+[Codegen] [Codegen - FBReactNativeSpec] Skipping iOS code generation for FBReactNativeSpec as it has been generated already.
+[Codegen] [Codegen - rncore] Skipping iOS code generation for rncore as it has been generated already.
+[Codegen] Generating Native Code for rngesturehandler_codegen - ios
+[Codegen] Generated artifacts: /Users/expo/workingdir/build/ios/build/generated/ios
+[Codegen] Generating Native Code for safeareacontext - ios
+[Codegen] Generated artifacts: /Users/expo/workingdir/build/ios/build/generated/ios
+[Codegen] Generating Native Code for rnscreens - ios
+[Codegen] Generated artifacts: /Users/expo/workingdir/build/ios/build/generated/ios
+[Codegen] Generating RCTThirdPartyComponentsProvider.h
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTThirdPartyComponentsProvider.h
+[Codegen] Generating RCTThirdPartyComponentsProvider.mm
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTThirdPartyComponentsProvider.mm
+[Codegen] Generating RCTModulesProvider.h
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTModuleProviders.h
+[Codegen] Generating RCTModuleProviders.mm
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTModuleProviders.mm
+[Codegen] Generating RCTAppDependencyProvider
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTAppDependencyProvider.h
+[Codegen] Generated artifact: /Users/expo/workingdir/build/ios/build/generated/ios/RCTAppDependencyProvider.mm
+[Codegen] Generated podspec: /Users/expo/workingdir/build/ios/build/generated/ios/ReactAppDependencyProvider.podspec
+[Codegen] Generated podspec: /Users/expo/workingdir/build/ios/build/generated/ios/ReactCodegen.podspec
+[Codegen] Done.
+Analyzing dependencies
+Fetching podspec for `DoubleConversion` from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`
+Fetching podspec for `RCT-Folly` from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`
+Fetching podspec for `boost` from `../node_modules/react-native/third-party-podspecs/boost.podspec`
+Fetching podspec for `fast_float` from `../node_modules/react-native/third-party-podspecs/fast_float.podspec`
+Fetching podspec for `fmt` from `../node_modules/react-native/third-party-podspecs/fmt.podspec`
+Fetching podspec for `glog` from `../node_modules/react-native/third-party-podspecs/glog.podspec`
+Adding spec repo `trunk` with CDN `https://cdn.cocoapods.org/`
+Downloading dependencies
+Installing DoubleConversion (1.1.6)
+Installing FBLazyVector (0.79.5)
+Installing RCT-Folly (2024.11.18.00)
+Installing RCTDeprecation (0.79.5)
+Installing RCTRequired (0.79.5)
+Installing RCTTypeSafety (0.79.5)
+Installing RNGestureHandler (2.24.0)
+Installing RNScreens (4.11.1)
+Installing React (0.79.5)
+Installing React-Core (0.79.5)
+Installing React-CoreModules (0.79.5)
+Installing React-Fabric (0.79.5)
+Installing React-FabricComponents (0.79.5)
+Installing React-FabricImage (0.79.5)
+Installing React-ImageManager (0.79.5)
+Installing React-Mapbuffer (0.79.5)
+Installing React-NativeModulesApple (0.79.5)
+Installing React-RCTActionSheet (0.79.5)
+Installing React-RCTAnimation (0.79.5)
+Installing React-RCTAppDelegate (0.79.5)
+Installing React-RCTBlob (0.79.5)
+Installing React-RCTFBReactNativeSpec (0.79.5)
+Installing React-RCTFabric (0.79.5)
+Installing React-RCTImage (0.79.5)
+Installing React-RCTLinking (0.79.5)
+Installing React-RCTNetwork (0.79.5)
+Installing React-RCTRuntime (0.79.5)
+Installing React-RCTSettings (0.79.5)
+Installing React-RCTText (0.79.5)
+Installing React-RCTVibration (0.79.5)
+Installing React-RuntimeApple (0.79.5)
+Installing React-RuntimeCore (0.79.5)
+Installing React-callinvoker (0.79.5)
+Installing React-cxxreact (0.79.5)
+Installing React-debug (0.79.5)
+Installing React-defaultsnativemodule (0.79.5)
+Installing React-domnativemodule (0.79.5)
+Installing React-featureflags (0.79.5)
+Installing React-featureflagsnativemodule (0.79.5)
+Installing React-graphics (0.79.5)
+Installing React-idlecallbacksnativemodule (0.79.5)
+Installing React-jsc (0.79.5)
+Installing React-jserrorhandler (0.79.5)
+Installing React-jsi (0.79.5)
+Installing React-jsiexecutor (0.79.5)
+Installing React-jsinspector (0.79.5)
+Installing React-jsinspectortracing (0.79.5)
+Installing React-jsitooling (0.79.5)
+Installing React-jsitracing (0.79.5)
+Installing React-logger (0.79.5)
+Installing React-microtasksnativemodule (0.79.5)
+Installing React-oscompat (0.79.5)
+Installing React-perflogger (0.79.5)
+Installing React-performancetimeline (0.79.5)
+Installing React-rendererconsistency (0.79.5)
+Installing React-renderercss (0.79.5)
+Installing React-rendererdebug (0.79.5)
+Installing React-rncore (0.79.5)
+Installing React-runtimeexecutor (0.79.5)
+Installing React-runtimescheduler (0.79.5)
+Installing React-timing (0.79.5)
+Installing React-utils (0.79.5)
+Installing ReactAppDependencyProvider (0.79.5)
+Installing ReactCodegen (0.79.5)
+Installing ReactCommon (0.79.5)
+Installing ScanditBarcodeCapture (7.5.0)
+Installing ScanditCaptureCore (7.5.0)
+Installing ScanditLabelCapture (7.5.0)
+Installing ScanditLabelCaptureText (7.5.0)
+Installing SocketRocket (0.7.1)
+Installing Yoga (0.0.0)
+Installing boost (1.84.0)
+Installing fast_float (6.1.4)
+Installing fmt (11.0.2)
+Installing glog (0.3.5)
+Installing react-native-safe-area-context (5.4.0)
+Installing scandit-datacapture-frameworks-barcode (7.5.0)
+Installing scandit-datacapture-frameworks-core (7.5.0)
+Installing scandit-datacapture-frameworks-label (7.5.0)
+Installing scandit-react-native-datacapture-barcode (7.5.0)
+Installing scandit-react-native-datacapture-core (7.5.0)
+Installing scandit-react-native-datacapture-label (7.5.0)
+Installing scandit-react-native-datacapture-label-text (7.5.0)
+Generating Pods project
+Setting USE_HERMES build settings
+Setting REACT_NATIVE_PATH build settings
+Setting SWIFT_ACTIVE_COMPILATION_CONDITIONS build settings
+[Ccache]: Removing Ccache from CC, LD, CXX & LDPLUSPLUS build settings
+[SPM] Cleaning old SPM dependencies from Pods project
+[SPM] Adding SPM dependencies to Pods project
+[Privacy Manifest Aggregation] Appending aggregated reasons to existing PrivacyInfo.xcprivacy file.
+[Privacy Manifest Aggregation] Reading .xcprivacy files to aggregate all used Required Reason APIs.
+Setting CLANG_CXX_LANGUAGE_STANDARD to c++20 on /Users/expo/workingdir/build/ios/PriceWeightLabelCaptureSample.xcodeproj
+=============== JavaScriptCore is being moved ===============
+JavaScriptCore has been extracted from react-native core
+and will be removed in a future release. It can now be
+installed from `@react-native-community/javascriptcore`
+See: https://github.com/react-native-community/javascriptcore
+=============================================================
+==================== DEPRECATION NOTICE =====================
+Calling `pod install` directly is deprecated in React Native
+because we are moving away from Cocoapods toward alternative
+solutions to build the project.
+* If you are using Expo, please run:
+`npx expo run:ios`
+* If you are using the Community CLI, please run:
+`yarn ios`
+=============================================================
+Pod install took 36 [s] to run
+Integrating client project
+Pod installation complete! There are 82 dependencies from the Podfile and 83 total pods installed.

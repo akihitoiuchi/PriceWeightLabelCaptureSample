@@ -1,0 +1,75 @@
+import React, { useReducer, useEffect } from "react"
+import { NavigationContainer } from "@react-navigation/native"
+import { HomeScreen } from "./HomeScreen/HomeScreen"
+import { ItemListScreen } from "./ItemListScreen/ItemListScreen"
+import { createStack, Screens } from "./Navigation/navigation"
+import { initialState, reducer } from "./Models/reducer"
+import { AppDispatchContext, AppStateContext } from "./Models/appContext"
+import { Strings } from "./Resources/Strings"
+import { Colors } from "./Resources/Colors"
+import { StatusBar } from "react-native"
+import { Values } from "./Resources/Values"
+import { Scandit } from "scandit-react-native"
+import Constants from "expo-constants"
+
+const Stack = createStack()
+
+function App() {
+  StatusBar.setBarStyle("light-content", true)
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    const licenseKey =
+      Constants.expoConfig?.extra?.SCANDIT_LICENSE_KEY ??
+      Constants.manifest?.extra?.SCANDIT_LICENSE_KEY
+
+    if (licenseKey) {
+      try {
+        Scandit.configure(licenseKey)
+        console.log("✅ Scandit SDK initialized")
+      } catch (error) {
+        console.error("❌ Scandit SDK initialization failed:", error)
+      }
+    } else {
+      console.warn("⚠️ SCANDIT_LICENSE_KEY not found in extra")
+    }
+  }, [])
+
+  return (
+    <AppStateContext.Provider value={state}>
+      <AppDispatchContext.Provider value={dispatch}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: Colors.black900,
+              },
+              headerTintColor: Colors.white,
+            }}
+          >
+            <Stack.Screen
+              name={Screens.HOME}
+              component={HomeScreen}
+              options={{
+                headerTitle: Strings.homeHeaderTitle,
+                headerTransparent: true,
+                headerTitleAlign: "center",
+                headerStatusBarHeight: Values.headerPaddingTop,
+              }}
+            />
+            <Stack.Screen
+              name={Screens.ITEM_LIST}
+              component={ItemListScreen}
+              options={{
+                headerTitle: Strings.itemListScreenTitle,
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </AppDispatchContext.Provider>
+    </AppStateContext.Provider>
+  )
+}
+
+export default App
+
