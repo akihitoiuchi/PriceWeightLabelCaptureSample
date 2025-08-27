@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, NativeModules } from 'react-native';
 import {
   DataCaptureContext,
   Camera,
@@ -24,6 +24,13 @@ export default function App() {
   const [scannedCode, setScannedCode] = useState<string | null>(null);
 
   useEffect(() => {
+    // ✅ ネイティブモジュールの存在確認ログ
+    if (NativeModules.ScanditCaptureCore) {
+      console.log('✅ ScanditCaptureCore is available');
+    } else {
+      console.warn('❌ ScanditCaptureCore is undefined');
+    }
+
     const licenseKey = Constants.expoConfig?.extra?.SCANDIT_LICENSE_KEY;
     if (!licenseKey) {
       console.warn('⚠️ SCANDIT_LICENSE_KEY not found');
@@ -88,6 +95,3 @@ const styles = StyleSheet.create({
     margin: 16,
   },
 });
-
-export default App
-
