@@ -78,6 +78,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={{ textAlign: 'center', marginTop: 40 }}>📦 アプリは起動しています</Text>
       {view && <View style={styles.viewContainer}>{view}</View>}
       <Text style={styles.resultText}>
         {scannedCode ? `Scanned: ${scannedCode}` : 'Scan a barcode'}
