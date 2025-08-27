@@ -24,9 +24,9 @@
     "dev": {
       "developmentClient": true,
       "distribution": "internal",
+      "skipPrebuild": true,
       "ios": {
-        "buildConfiguration": "Debug",
-        "skipPrebuild": true
+        "buildConfiguration": "Debug"
       }
     }
   },
